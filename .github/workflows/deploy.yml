@@ -27,9 +27,11 @@ jobs:
         run: npm i -g @antfu/ni
 
       - name: Install dependencies
+        working-directory: iterative-slidev
         run: nci
 
       - name: Build
+        working-directory: iterative-slidev
         run: nr build --base /ppt/
 
       - name: Setup Pages
@@ -37,7 +39,7 @@ jobs:
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: iterative-slidev/dist
 
   deploy:
     permissions:
